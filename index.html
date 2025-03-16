@@ -14,6 +14,19 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" rel="stylesheet">
     <!-- Main CSS -->
     <link href="style.css" rel="stylesheet">
+    <link href="responsive-css.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#111111">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Preconnect to external resources -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Better font handling for Vietnamese characters -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
@@ -24,9 +37,8 @@
 <div class="logo">
     <a href="index.html">
         <img src="logo.png" alt="Châu Thái Sơn" 
-             style="height: 60px; object-fit: contain;"
              onerror="this.style.display='none'; document.getElementById('logo-text').style.display='inline-block';">
-        <span id="logo-text" style="display:none; color:#e2b94d; font-size:24px; font-weight:bold;">Châu Thái Sơn</span>
+        <span id="logo-text" style="display:none; color:#e2b94d; font-size:20px; font-weight:bold;">Châu Thái Sơn</span>
     </a>
 </div>
   <form class="search-bar">
@@ -197,26 +209,26 @@
             <div class="departments-content">
                 <div class="pie-chart-container">
                     <div class="hex-grid-container">
-                        <div class="hex-item">
-                            <span>1</span>
-                            <p>IN OFFSET</p>
-                        </div>
-                        <div class="hex-item">
-                            <span>2</span>
-                            <p>IN FLEXO</p>
-                        </div>
-                        <div class="hex-item">
-                            <span>3</span>
-                            <p>CẮT &amp; GIA CÔNG</p>
-                        </div>
-                        <div class="hex-item">
-                            <span>4</span>
-                            <p>ĐÓNG GÓI &amp; HOÀN&nbsp;THIỆN</p>
-                        </div>
-                        <div class="center-hex">
-                            <span>CTS</span>
-                        </div>
-                    </div>
+    <div class="hex-item" aria-label="In Offset">
+        <span>1</span>
+        <p>IN OFFSET</p>
+    </div>
+    <div class="hex-item" aria-label="In Flexo">
+        <span>2</span>
+        <p>IN FLEXO</p>
+    </div>
+    <div class="hex-item" aria-label="Cắt và Gia Công">
+        <span>3</span>
+        <p>CẮT &amp; GIA CÔNG</p>
+    </div>
+    <div class="hex-item" aria-label="Đóng Gói và Hoàn Thiện">
+        <span>4</span>
+        <p>ĐÓNG GÓI &amp; HOÀN THIỆN</p>
+    </div>
+    <div class="center-hex">
+        <span>CTS</span>
+    </div>
+</div>
                 </div>
                 
                 <div class="departments-info">
@@ -715,5 +727,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="script.js"></script>
+<script>
+// Detect mobile device
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+if (isMobile) {
+    document.body.classList.add('mobile-device');
+}
+
+// Fix viewport height issues on mobile (iOS Safari)
+function setVh() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+setVh();
+window.addEventListener('resize', setVh);
+</script>
+<script src="mobile-fixes.js"></script>
 </body>
 </html>
